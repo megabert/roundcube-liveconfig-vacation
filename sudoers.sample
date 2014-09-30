@@ -1,0 +1,1 @@
+web1 ALL= (mail) NOPASSWD: /usr/local/bin/set_sieve_autoreply
