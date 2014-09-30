@@ -1,12 +1,9 @@
-README
-
-Vacation module for RoundCube Webmail
-
-Developed by Boris HUISGEN <bhuisgen@hbis.fr>
-Under GNU GPL licence.
-
-Blog : http://blog.hbis.fr
+Roundcube Autoresponder Plugin for use with LiveConfig Panel
 
 This Project adds a new driver "lcsieve" for use
 with liveconfig + dovecot sieve autoresponder
 
+The Plugin is based on vacation plugin from B. Huisgen
+
+Blog : http://blog.hbis.fr
+https://github.com/bhuisgen/rc-vacation
