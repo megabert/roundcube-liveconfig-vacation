@@ -4,7 +4,7 @@
  +-----------------------------------------------------------------------+
  | lib/drivers/lcsieve.php                                               |
  |                                                                       |
- | Copyright (C) 2010 Tobias Unsleber                                    |
+ | Copyright (C) 2014 Tobias Unsleber                                    |
  | Licensed under the GNU GPL                                            |
  +-----------------------------------------------------------------------+
  */
@@ -18,16 +18,18 @@
  */
 
 
-function _info($msg) {
-	$log = fopen("/var/www/web1/logs/my_php.log","a");
-	fwrite($log,"$msg\n");
+function _log($msg) {
+	$log = fopen("/tmp/roundcube_lcsieve.log","a");
+	fwrite($log,$msg);
 	fclose($log);
 }
 
+function _info($msg) {
+	_log("$msg\n");
+}
+
 function _err($msg) {
-	$log = fopen("/var/www/web1/logs/my_php.log","a");
-	fwrite($log,"ERROR: $msg\n");
-	fclose($log);
+	_log($log,"ERROR: $msg\n");
 }
 
 function _create_sieve_file($filename,$contract,$userfolder,$address,$subject,$message) {
