@@ -17,7 +17,7 @@ Installation:
 
 1) Install Roundcube
 
-2) Copy this plugin directory to ROUNDCUBE_ROOT/plugins
+2) Copy this plugin directory to ROUNDCUBE_ROOT/plugins/vacation/
 
 3) Change Permissions
         /var/lib/liveconfig directory     : group +rwx
