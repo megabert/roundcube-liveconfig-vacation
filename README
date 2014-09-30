@@ -7,4 +7,6 @@ Under GNU GPL licence.
 
 Blog : http://blog.hbis.fr
 
+This Project adds a new driver "lcsieve" for use
+with liveconfig + dovecot sieve autoresponder
 
