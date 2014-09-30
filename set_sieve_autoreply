@@ -1,0 +1,29 @@
+#!/bin/dash
+
+#
+# Script to move dovecot-autoresponder configuration file to right place
+#
+# no absolute path put in from outside(security feature)
+#
+
+{
+contractname="$1"
+userfolderid="$2"
+     tmpfile="$3"
+
+
+mail_base=/var/mail
+
+if [ "$#" -lt 3 ]; then
+	echo "\nError";
+	echo "\nUsage: "`basename $0`" <contractname aka web###> <userfolder aka ###> <temp-sieve-file-path>\n"
+	exit 1
+fi
+
+if echo "$contractname" | grep -qE '^web[0-9]{1,10}$' && echo "$userfolderid" | grep -qE '^[0-9]{1,5}$' ;then
+	if [ -r "$tmpfile" ] ; then
+	cp -f $tmpfile $mail_base/$contractname/$userfolderid/dovecot.sieve
+	fi
+fi
+
+} >>/tmp/vacation.log 2>&1
