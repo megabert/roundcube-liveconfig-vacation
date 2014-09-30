@@ -10,7 +10,7 @@ Prerequisites:
 * Tested with roundcube 1.0
 * Tested with Debian Wheezy (7.0)
 * dovecot imap server
-* Roundcube and IMAP-Server are the same server
+* Roundcube and IMAP-Server are running on the same server
 * sudo package installed
 
 Installation:
@@ -23,17 +23,14 @@ Installation:
         /var/lib/liveconfig directory     : group +rwx
         /var/lib/liveconfig/liveconfig.db : group +rw
 
-4) Add the user running the roundcube-site to the group
-   liveconfig
-
-5) Edit the file config.ini.php for plugin vacation with
+4) Edit the file config.ini.php for plugin vacation with
    these values:
 
         $config['vacation_driver'] = 'lcsieve';
         $config['vacation_lcsieve_liveconfig_db_file'] = "/var/lib/liveconfig/liveconfig.db";
         $config['vacation_lcsieve_liveconfig_mail_base_path'] = "/var/mail";
 
-6) Add the following line to /etc/sudoers (visudo recommended)
+5) Add the following line to /etc/sudoers (visudo recommended)
 
         web1 ALL= (mail) NOPASSWD: /usr/local/bin/set_sieve_autoreply
 
@@ -41,15 +38,15 @@ Installation:
         It's possible and recommended to use one roundcube installation for multiple
         sites.
         
-7) Add the user runnig the website of roundcube to the liveconfig group 
+6) Add the user running the website of roundcube to the liveconfig group 
 
    usermod -a -G liveconfig <yourwebserverusername>
 
-8) If you have a non standard Maildir (other than /var/mail) change
+7) If you have a non standard Maildir (other than /var/mail) change
     it in script "sieve_set_autoreply"
 
-9) Copy script "sieve_set_autoreply" to /usr/local/bin and
+8) Copy script "sieve_set_autoreply" to /usr/local/bin and
    set execute permissions
 
-10) Activate vacation plugin in Roundcube-Config-File
+9) Activate vacation plugin in Roundcube-Config-File
    ROUNDCUBE_ROOT/config/config.inc.php
