@@ -47,8 +47,7 @@ $config['vacation_forwarder_multiple'] = FALSE;
 $config['vacation_forwarder_separator'] = ',';
 
 // driver used for backend storage
-$config['vacation_driver'] = 'sql';
-
+$config['vacation_driver'] = 'lcsieve';
 
 /*
  * SQL driver
@@ -243,5 +242,21 @@ $config['vacation_forward_message_template'] =
 "Precedence: bulk\r\n" .
 "\r\n" .
 "%vacation_message";
+
+/*
+ * lcsieve driver
+ * 
+ * Vacation with LiveConfig and Sieve 
+ * 
+ */
+
+// path of the liveconfig db-file
+$config['vacation_lcsieve_liveconfig_db_file'] = "/var/lib/liveconfig/liveconfig.db";
+
+// base path of mailboxes
+$config['vacation_lcsieve_liveconfig_mail_base_path'] = "/var/mail";
+
+// end vacation config file
+
 
 // end vacation config file
