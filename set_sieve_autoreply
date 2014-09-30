@@ -20,7 +20,9 @@ if [ "$#" -lt 3 ]; then
 	exit 1
 fi
 
-if echo "$contractname" | grep -qE '^web[0-9]{1,10}$' && echo "$userfolderid" | grep -qE '^[0-9]{1,5}$' ;then
+if [ "$tmpfile" = "delete" ]; then
+	rm -f $mail_base/$contractname/$userfolderid/dovecot.sieve
+elif echo "$contractname" | grep -qE '^web[0-9]{1,10}$' && echo "$userfolderid" | grep -qE '^[0-9]{1,5}$' ;then
 	if [ -r "$tmpfile" ] ; then
 	cp -f $tmpfile $mail_base/$contractname/$userfolderid/dovecot.sieve
 	fi

@@ -57,6 +57,10 @@ function _create_sieve_file($filename,$contract,$userfolder,$address,$subject,$m
 
 }
 
+function _delete_sieve_file($contract,$userfolder) {
+	system("/usr/bin/sudo -u mail /usr/local/bin/set_sieve_autoreply '$contract' '$userfolder' 'delete'");
+}
+
 function _set_vacation_data($rcmail, $mail_local, $mail_domain, $vacation_message, $vacation_subject, $vacation_enable) {
 
         $lc_db_file 		= $rcmail->config->get('vacation_lcsieve_liveconfig_db_file');
@@ -93,6 +97,8 @@ function _set_vacation_data($rcmail, $mail_local, $mail_domain, $vacation_messag
 
 	if ($autoreply_db_value=='1') {
 		_create_sieve_file($sieve_file,$contract,$userfolder,"$mail_local@$mail_domain",$vacation_subject,$vacation_message);
+	} else {
+		_delete_sieve_file($contract,$userfolder);
 	}
 
 	if(!$results) {
