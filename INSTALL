@@ -50,3 +50,4 @@ Installation:
 
 9) Activate vacation plugin in Roundcube-Config-File
    ROUNDCUBE_ROOT/config/config.inc.php
+
